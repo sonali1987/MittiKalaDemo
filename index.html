@@ -1,179 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mitti Kalā - Art of Clay</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #6b4226;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-style: italic;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 10px;
-    }
-    .search-bar {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .search-bar input {
-      padding: 10px;
-      width: 300px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    .product h3 {
-      margin: 10px 0 5px;
-    }
-    .product p {
-      margin: 0 0 10px;
-    }
-    .product button {
-      padding: 10px 15px;
-      border: none;
-      background-color: #6b4226;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .product button:hover {
-      background-color: #8c5a3c;
-    }
-    footer {
-      background-color: #6b4226;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Mitti Kalā</h1>
-    <p>Art of Clay</p>
-    <nav>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#cart">Cart</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search for ceramics..." onkeyup="searchProducts()">
-    </div>
-
-    <div class="products" id="products">
-      <div class="product">
-        <img src="https://via.placeholder.com/250x200.png?text=Handmade+Mug" alt="Handmade Mug">
-        <h3>Handmade Mug</h3>
-        <p>$25.00</p>
-        <button onclick="addToCart('Handmade Mug', 25)">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/250x200.png?text=Ceramic+Bowl" alt="Ceramic Bowl">
-        <h3>Ceramic Bowl</h3>
-        <p>$30.00</p>
-        <button onclick="addToCart('Ceramic Bowl', 30)">Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/250x200.png?text=Decor+Vase" alt="Decor Vase">
-        <h3>Decor Vase</h3>
-        <p>$45.00</p>
-        <button onclick="addToCart('Decor Vase', 45)">Add to Cart</button>
-      </div>
-    </div>
-
-    <h2 id="cart">Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p><strong>Total: $<span id="cart-total">0</span></strong></p>
-    <button onclick="checkout()">Checkout</button>
+<div class="products" id="products">
+  <div class="product">
+    <img src="images/1.jpeg" alt="Handmade Mug">
+    <h3>Handmade Mug</h3>
+    <p>$25.00</p>
+    <button onclick="addToCart('Handmade Mug', 25)">Add to Cart</button>
   </div>
-
-  <footer>
-    <p>&copy; 2025 Mitti Kalā - Art of Clay. All rights reserved.</p>
-  </footer>
-
-  <script>
-    let cart = [];
-
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      displayCart();
-    }
-
-    function displayCart() {
-      const cartItems = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
-      cartItems.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.product} - $${item.price}`;
-        cartItems.appendChild(li);
-        total += item.price;
-      });
-      cartTotal.textContent = total;
-    }
-
-    function searchProducts() {
-      const query = document.getElementById('search').value.toLowerCase();
-      const products = document.querySelectorAll('.product');
-      products.forEach(product => {
-        const name = product.querySelector('h3').textContent.toLowerCase();
-        product.style.display = name.includes(query) ? 'block' : 'none';
-      });
-    }
-
-    function checkout() {
-      alert('Thank you for shopping at Mitti Kalā - Art of Clay! (Checkout process not implemented)');
-    }
-  </script>
-</body>
-</html>
+  <div class="product">
+    <img src="images/2.jpeg" alt="Ceramic Bowl">
+    <h3>Ceramic Bowl</h3>
+    <p>$30.00</p>
+    <button onclick="addToCart('Ceramic Bowl', 30)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/3.jpeg" alt="Decor Vase">
+    <h3>Decor Vase</h3>
+    <p>$45.00</p>
+    <button onclick="addToCart('Decor Vase', 45)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/4.jpeg" alt="Plate Set">
+    <h3>Plate Set</h3>
+    <p>$50.00</p>
+    <button onclick="addToCart('Plate Set', 50)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/5.jpeg" alt="Serving Bowl">
+    <h3>Serving Bowl</h3>
+    <p>$40.00</p>
+    <button onclick="addToCart('Serving Bowl', 40)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/6.jpeg" alt="Tea Pot">
+    <h3>Tea Pot</h3>
+    <p>$60.00</p>
+    <button onclick="addToCart('Tea Pot', 60)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/7.jpeg" alt="Handmade Cup Set">
+    <h3>Handmade Cup Set</h3>
+    <p>$35.00</p>
+    <button onclick="addToCart('Handmade Cup Set', 35)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/8.jpeg" alt="Flower Pot">
+    <h3>Flower Pot</h3>
+    <p>$28.00</p>
+    <button onclick="addToCart('Flower Pot', 28)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="images/9.jpeg" alt="Traditional Pottery Jar">
+    <h3>Traditional Pottery Jar</h3>
+    <p>$55.00</p>
+    <button onclick="addToCart('Traditional Pottery Jar', 55)">Add to Cart</button>
+  </div>
+</div>
